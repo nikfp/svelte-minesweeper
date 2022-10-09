@@ -1,6 +1,6 @@
 import { writable, get, derived } from "svelte/store";
 
-interface ISquare {
+export interface ISquare {
   covered: boolean;
   row: number;
   col: number;

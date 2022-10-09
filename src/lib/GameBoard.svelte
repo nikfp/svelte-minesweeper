@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
+    import Square from "./Square.svelte";
 
   import { game } from "./stores/game";
 
@@ -13,7 +14,7 @@
   {#each $game.board as row, i (i)}
     <div class="row">
       {#each row as col, j (j)}
-        <div class="col">{col.mine}</div>
+        <Square square={col}/>
       {/each}
     </div>
   {/each}    
