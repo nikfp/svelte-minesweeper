@@ -11,16 +11,13 @@
 
 <div class="game-board">
   {#each $game.board as row, i (i)}
-  <div class="row">
-    {#each row as col, j (j)}
-  <div class="col">{col.mine}</div>
-{/each}
-  </div>
+    <div class="row">
+      {#each row as col, j (j)}
+        <div class="col">{col.mine}</div>
+      {/each}
+    </div>
   {/each}    
 </div>
-  <button on:click={() => {
-    console.log($game.canDecreaseSize)
-  }}>click</button>
 
 <style>
   .game-board {
