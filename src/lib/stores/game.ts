@@ -17,7 +17,7 @@ const _game = writable<IGame>({
   size: 0,
   mineCount: 0,
   board: [],
-})
+});
 
 function buildBoard(size: number, mineCount: number) {
   const squareCount = size * size;
@@ -25,7 +25,7 @@ function buildBoard(size: number, mineCount: number) {
   let placed = 0;
 
   while (placed <= mineCount) {
-    const location = Math.floor((Math.random() * squareCount));
+    const location = Math.floor(Math.random() * squareCount);
 
     if (random[location] === true) {
       continue;
@@ -34,14 +34,14 @@ function buildBoard(size: number, mineCount: number) {
     placed++;
   }
 
-  const squares: ISquare[] = random.map(el => {
+  const squares: ISquare[] = random.map((el) => {
     return {
       mine: el,
       row: 0,
       col: 0,
-      covered: true
-    }
-  })
+      covered: true,
+    };
+  });
 
   const board: ISquare[][] = [];
 
@@ -56,25 +56,26 @@ function buildBoard(size: number, mineCount: number) {
 export const allowers = derived(_game, ($_game) => {
   return {
     canIncreaseSize: $_game.size < 15,
-    canDecreaseSize: $_game.size > 5
-  }
-})
+    canDecreaseSize: $_game.size > 5,
+  };
+});
 
 export const game = {
   subscribe: _game.subscribe,
   set: _game.set,
   update: _game.update,
   initialize: () => {
-    _game.update(value => {
+    _game.update((value) => {
       return {
         ...value,
-        size: 10, mineCount: 10,
-        board: buildBoard(10, 10)
-      }
-    })
+        size: 10,
+        mineCount: 10,
+        board: buildBoard(10, 10),
+      };
+    });
   },
   increaseSize: () => {
-    _game.update(value => {
+    _game.update((value) => {
       const getAllowers = get(allowers);
       const canIncrease = getAllowers.canIncreaseSize;
       if (!canIncrease) return value;
@@ -82,12 +83,12 @@ export const game = {
       return {
         ...value,
         size: value.size + 1,
-        board: buildBoard(value.size + 1, value.mineCount)
-      }
-    })
+        board: buildBoard(value.size + 1, value.mineCount),
+      };
+    });
   },
   decreaseSize: () => {
-    _game.update(value => {
+    _game.update((value) => {
       const getAllowers = get(allowers);
       const canDecrease = getAllowers.canDecreaseSize;
       if (!canDecrease) return value;
@@ -98,11 +99,8 @@ export const game = {
         ...value,
         size: value.size - 1,
         mineCount,
-        board: buildBoard(value.size - 1, mineCount)
-      }
-    })
-  }
-}
-
-
-
+        board: buildBoard(value.size - 1, mineCount),
+      };
+    });
+  },
+};

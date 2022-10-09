@@ -3,6 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@sveltejs/vite-plugin-svelte': ^1.0.2
   '@tsconfig/svelte': ^3.0.0
+  prettier: ^2.7.1
   svelte: ^3.49.0
   svelte-check: ^2.8.1
   svelte-preprocess: ^4.10.7
@@ -13,6 +14,7 @@ specifiers:
 devDependencies:
   '@sveltejs/vite-plugin-svelte': 1.0.8_svelte@3.50.1+vite@3.1.3
   '@tsconfig/svelte': 3.0.0
+  prettier: 2.7.1
   svelte: 3.50.1
   svelte-check: 2.9.0_svelte@3.50.1
   svelte-preprocess: 4.10.7_iprco5tylfmvffqgrvqxc46njy
@@ -654,6 +656,12 @@ packages:
       nanoid: 3.3.4
       picocolors: 1.0.0
       source-map-js: 1.0.2
+    dev: true
+
+  /prettier/2.7.1:
+    resolution: {integrity: sha512-ujppO+MkdPqoVINuDFDRLClm7D78qbDt0/NR+wp5FqEZOoTNAjPHWj17QRhu7geIHJfcNhRk1XVQmF8Bp3ye+g==}
+    engines: {node: '>=10.13.0'}
+    hasBin: true
     dev: true
 
   /queue-microtask/1.2.3:
