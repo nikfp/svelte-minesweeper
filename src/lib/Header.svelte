@@ -1,10 +1,10 @@
 <script>
-    import BoardSize from "./BoardSize.svelte";
-
+  import BoardSize from "./BoardSize.svelte";
+    import Minecount from "./Minecount.svelte";
 </script>
+
 <header>
-  <p>mine count</p>
-  <p>timer</p>
+  <Minecount />
   <BoardSize />
 </header>
 
