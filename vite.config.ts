@@ -1,9 +1,11 @@
-import { defineConfig } from "vite";
+/// <reference types="vitest/config">
+import { defineConfig, mergeConfig } from "vite";
 import { svelte } from "@sveltejs/vite-plugin-svelte";
 import * as path from "path";
+import {defineConfig as testConfig } from 'vitest/config'
 
 // https://vitejs.dev/config/
-export default defineConfig({
+const baseConfig = defineConfig({
   plugins: [svelte()],
   resolve: {
     alias: {
@@ -11,3 +13,10 @@ export default defineConfig({
     },
   },
 });
+
+export default mergeConfig(baseConfig, testConfig({
+  test: {
+    globals: true, 
+    environment: "jsdom"
+  }
+}))
