@@ -1,6 +1,5 @@
-import { buildBoard } from "./_buildBoard";
-import type { IGame } from "./_game";
-import { _game } from "./_game";
+import { _game } from "../root/_game";
+import buildBoard from "./buildBoard";
 
 export default function () {
   _game.update((value) => {

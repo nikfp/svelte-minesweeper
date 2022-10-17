@@ -1,6 +1,8 @@
 import { get } from "svelte/store";
-import { allowers } from "./allowers";
-import { buildBoard } from "./_buildBoard";
+import { allowers } from "../allowers";
+import { _game } from "../root/_game";
+import buildBoard from "./buildBoard";
+
 export default function () {
   _game.update((value) => {
     const canDecrease = get(allowers).canDecreaseMines;

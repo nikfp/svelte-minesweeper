@@ -1,20 +1,20 @@
-import { _game } from "./_game";
-import { buildBoard } from "./_buildBoard";
-import _initialize from './_initialize';
-import _increaseSize from './_increaseSize';
-import _decreaseSize from './_decreaseSize';
-import _increaseMines from './_increaseMines';
-import _decreaseMines from './_decreaseMines';
-import _handleClick from './_handleClick';
+import buildBoard from "./gameFunctions/buildBoard";
+import decreaseMines from "./gameFunctions/decreaseMines";
+import decreaseSize from "./gameFunctions/decreaseSize";
+import handleClick from "./gameFunctions/handleClick";
+import increaseMines from "./gameFunctions/increaseMines";
+import increaseSize from "./gameFunctions/increaseSize";
+import initialize from "./gameFunctions/initialize";
+import { _game } from "./root/_game";
 
 export const game = {
   subscribe: _game.subscribe,
-  initialize: _initialize,
-  increaseSize: _increaseSize,
-  decreaseSize: _decreaseSize,
-  increaseMines: _increaseMines,
-  decreaseMines: _decreaseMines,
-  handleClick: _handleClick,
+  initialize: initialize,
+  increaseSize: increaseSize,
+  decreaseSize: decreaseSize,
+  increaseMines: increaseMines,
+  decreaseMines: decreaseMines,
+  handleClick: handleClick,
   reset: () => {
     _game.update(value => {
       return {

@@ -1,6 +1,6 @@
 import { get } from "svelte/store";
-import { allowers } from "./allowers";
-import { _game } from "./_game";
+import { allowers } from "../allowers";
+import { _game } from "../root/_game";
 
 export default function (row: number, col: number) {
   if (!get(allowers).canPlay) return;

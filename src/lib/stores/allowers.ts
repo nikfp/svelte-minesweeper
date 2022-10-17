@@ -1,5 +1,5 @@
 import { derived } from "svelte/store";
-import { _game } from "./_game";
+import { _game } from "./root/_game";
 
 export const allowers = derived(_game, ($_game) => {
   let size = $_game.size;

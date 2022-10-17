@@ -1,6 +1,6 @@
-import type {ISquare, IBoard } from './_game'
+import type { IBoard, ISquare } from "../root/_game";
 
-export function buildBoard(size: number, mineCount: number): IBoard {
+export default function buildBoard(size: number, mineCount: number): IBoard {
   const squareCount = size * size;
   const random = Array(squareCount).fill(false);
   let placed = 0;
