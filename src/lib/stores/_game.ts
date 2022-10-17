@@ -10,7 +10,7 @@ export interface ISquare {
 
 export type IBoard = ISquare[][];
 
-interface IGame {
+export interface IGame {
   board: IBoard;
   mineCount: number;
   size: number;
