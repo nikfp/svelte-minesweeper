@@ -8,11 +8,13 @@
   onMount(() => {
     game.initialize();
   });
+
+  
 </script>
 
 <div class="game-board">
   {#each $game.board as row, i (i)}
-    <div class="row">
+  <div class="row" style="height: calc(100% / {$game.size})">
       {#each row as col, j (j)}
         <Square square={col} />
       {/each}
@@ -34,5 +36,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    margin-top: 0;
+    margin-bottom: 0;
   }
 </style>

@@ -31,5 +31,12 @@ export function buildBoard(size: number, mineCount: number): IBoard {
     board.push(row);
   }
 
+  board.forEach((row, rowIndex) => {
+    row.forEach((col, colIndex) => {
+      col.row = rowIndex;
+      col.col = colIndex;
+    })
+  })
+
   return board;
 }

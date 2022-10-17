@@ -21,11 +21,11 @@ export const game = {
       if (!canIncrease) return value;
 
       const size = value.size + 1;
-      const minMines = Math.floor(size * size / 4);
+      const minMines = Math.floor((size * size) / 4);
       const mineCount = value.mineCount > minMines ? value.mineCount : minMines;
       return {
         ...value,
-        size, 
+        size,
         mineCount,
         board: buildBoard(value.size + 1, value.mineCount),
       };
@@ -62,17 +62,31 @@ export const game = {
     });
   },
   decreaseMines: () => {
-    _game.update(value => {
+    _game.update((value) => {
       const canDecrease = get(allowers).canDecreaseMines;
-      if(!canDecrease) return value;
+      if (!canDecrease) return value;
 
       const mineCount = value.mineCount - 1;
 
       return {
         ...value,
         mineCount,
-        board: buildBoard(value.size, mineCount)
+        board: buildBoard(value.size, mineCount),
+      };
+    });
+  },
+  handleClick: (row: number, col: number) => {
+    if(!get(allowers).canPlay) return;
+    _game.update((value) => {
+      const square = value.board[row][col];
+
+      if (square.covered) {
+        square.covered = false;
       }
-    })
-  }
+
+      return {
+        ...value,
+      };
+    });
+  },
 };

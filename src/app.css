@@ -13,6 +13,11 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+  --border-light: #a6a2a2; 
+  --border-dark: #525251;
+  --square-covered: #6b6a6a;
+  --square-uncovered: #c4c4c4;
+  --square-border-size: 2px;
 }
 
 * {
