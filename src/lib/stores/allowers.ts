@@ -4,7 +4,6 @@ import { _game } from "./_game";
 export const allowers = derived(_game, ($_game) => {
   let size = $_game.size;
   let count = $_game.mineCount;
-  console.log('size is: ' + size);
   return {
     canIncreaseSize: $_game.size < 15,
     canDecreaseSize: $_game.size > 5,

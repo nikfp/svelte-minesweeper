@@ -1,4 +1,4 @@
-import { get, derived } from "svelte/store";
+import {get} from 'svelte/store'
 import { _game } from "./_game";
 import { buildBoard } from "./_buildBoard";
 import { allowers } from "./allowers";
@@ -89,4 +89,12 @@ export const game = {
       };
     });
   },
+  reset: () => {
+    _game.update(value => {
+      return {
+        ...value, 
+        board: buildBoard(value.size, value.mineCount)
+      }
+    })
+  }
 };
