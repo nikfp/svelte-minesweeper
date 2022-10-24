@@ -6,6 +6,8 @@ export interface ISquare {
   row: number;
   col: number;
   mine: boolean;
+  flag: boolean;
+  adjacentMines: number;
 }
 
 export type IBoard = ISquare[][];

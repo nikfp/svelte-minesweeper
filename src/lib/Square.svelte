@@ -13,7 +13,7 @@
   style="width: calc(100% / {$game.size})"
   on:click={() => game.handleClick(square.row, square.col)}
 >
-  {square.mine}
+  {square.mine ? square.mine : square.adjacentMines}
 </div>
 
 <style>

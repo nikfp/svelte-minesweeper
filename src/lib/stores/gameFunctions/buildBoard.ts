@@ -1,4 +1,5 @@
 import type { IBoard, ISquare } from "../root/_game";
+import { getAdjacentLocations } from "./utilities";
 
 export default function buildBoard(size: number, mineCount: number): IBoard {
   const squareCount = size * size;
@@ -21,6 +22,8 @@ export default function buildBoard(size: number, mineCount: number): IBoard {
       row: 0,
       col: 0,
       covered: true,
+      flag: false,
+      adjacentMines: 0
     };
   });
 
@@ -35,6 +38,15 @@ export default function buildBoard(size: number, mineCount: number): IBoard {
     row.forEach((col, colIndex) => {
       col.row = rowIndex;
       col.col = colIndex;
+
+      if(col.mine) return;
+
+      const adjacents = getAdjacentLocations(rowIndex, colIndex, size);
+
+      col.adjacentMines = adjacents.map(el => {
+        return board[el[0]][el[1]]
+      }).filter(el => el.mine).length
+
     })
   })
 
