@@ -8,7 +8,7 @@ export const allowers = derived(_game, ($_game) => {
     canIncreaseSize: $_game.size < 15,
     canDecreaseSize: $_game.size > 5,
     canIncreaseMines: count < (size * size / 2),
-    canDecreaseMines: count > ((size * size) / 4), 
+    canDecreaseMines: count > ((size * size) / 5), 
     canPlay: !$_game.board.flat().some(el => el.covered === false && el.mine)
   };
 });

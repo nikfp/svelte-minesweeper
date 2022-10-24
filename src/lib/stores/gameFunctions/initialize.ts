@@ -6,8 +6,8 @@ export default function () {
     return {
       ...value,
       size: 10,
-      mineCount: 25,
-      board: buildBoard(10, 25),
+      mineCount: 20,
+      board: buildBoard(10, 20),
     };
   });
 }

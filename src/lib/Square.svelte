@@ -16,11 +16,11 @@
     game.handleRightClick(square.row, square.col)}
 >
   {#if square.covered && square.flag}
-    {"flag"}
+    <img src="flag.png" alt="flag" />
   {/if}
   {#if !square.covered}
     {#if square.mine}
-      {"mine"}
+      <img src="mine.png" alt="mine" />
     {/if}
     {#if square.adjacentMines > 0}
       {square.adjacentMines}
