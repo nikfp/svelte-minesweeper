@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { ISquare } from "./stores/_game";
+  import type { ISquare } from "./stores/root/_game";
   import { game } from "./stores/game";
 
   export let square: ISquare;
@@ -12,8 +12,20 @@
   class="square {red} {covered}"
   style="width: calc(100% / {$game.size})"
   on:click={() => game.handleClick(square.row, square.col)}
+  on:contextmenu|preventDefault={() =>
+    game.handleRightClick(square.row, square.col)}
 >
-  {square.mine ? square.mine : square.adjacentMines}
+  {#if square.covered && square.flag}
+    {"flag"}
+  {/if}
+  {#if !square.covered}
+    {#if square.mine}
+      {"mine"}
+    {/if}
+    {#if square.adjacentMines > 0}
+      {square.adjacentMines}
+    {/if}
+  {/if}
 </div>
 
 <style>
