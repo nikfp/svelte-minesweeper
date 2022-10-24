@@ -3,13 +3,12 @@
   import { game } from "./stores/game";
 
   export let square: ISquare;
-
-  $: red = square.mine ? "red" : "";
+  $: adjacent = !square.covered && square.adjacentMines > 0 ? "adjacent" : "";
   $: covered = square.covered ? "covered" : "";
 </script>
 
 <div
-  class="square {red} {covered}"
+  class="square {covered} {adjacent}"
   style="width: calc(100% / {$game.size})"
   on:click={() => game.handleClick(square.row, square.col)}
   on:contextmenu|preventDefault={() =>
@@ -23,7 +22,11 @@
       <img src="mine.png" alt="mine" />
     {/if}
     {#if square.adjacentMines > 0}
-      {square.adjacentMines}
+      <img
+        class="adjacent"
+        src="number-{square.adjacentMines}.svg"
+        alt="{square.adjacentMines} mines nearby"
+      />
     {/if}
   {/if}
 </div>
@@ -50,5 +53,13 @@
     border-bottom: var(--square-border-size) solid var(--border-dark);
     border-left: var(--square-border-size) solid var(--border-light);
     background-color: var(--square-covered);
+  }
+  .adjacent {
+    padding: .125em;
+  }
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
 </style>
