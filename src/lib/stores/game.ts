@@ -6,6 +6,7 @@ import handleRightClick from "./gameFunctions/handleRightClick";
 import increaseMines from "./gameFunctions/increaseMines";
 import increaseSize from "./gameFunctions/increaseSize";
 import initialize from "./gameFunctions/initialize";
+import { informers } from "./informers";
 import { _game } from "./root/_game";
 
 export const game = {
@@ -17,6 +18,7 @@ export const game = {
   decreaseMines: decreaseMines,
   handleClick: handleClick,
   handleRightClick: handleRightClick,
+  informers: informers,
   reset: () => {
     _game.update(value => {
       return {
